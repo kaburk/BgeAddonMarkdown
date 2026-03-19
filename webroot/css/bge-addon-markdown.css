@@ -1,0 +1,94 @@
+/* =========================================================
+   BgeAddonMarkdown — 管理画面 + フロントエンド共通スタイル
+   ========================================================= */
+
+/* ----- 左右分割エディタ レイアウト ----- */
+.bge-md-field {
+    display: flex;
+    gap: 12px;
+    min-height: 420px;
+}
+
+.bge-md-field__pane {
+    flex: 1 1 50%;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.bge-md-field__label {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #444;
+}
+
+/* ----- Markdown テキストエリア ----- */
+.bge-md-source-input {
+    flex: 1 1 auto;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #24292f;
+    background: #f6f8fa;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    resize: vertical;
+    white-space: pre;
+    overflow-wrap: normal;
+    overflow-x: auto;
+    tab-size: 2;
+    outline: none;
+    transition: border-color 0.15s;
+}
+
+.bge-md-source-input:focus {
+    border-color: #0969da;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(9, 105, 218, 0.15);
+}
+
+/* ----- プレビューペイン ----- */
+.bge-md-field__pane--preview {
+    overflow: hidden;
+}
+
+.bge-md-preview-body {
+    flex: 1 1 auto;
+    padding: 16px;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    background: #fff;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+/* ----- フロントエンド出力ラッパー ----- */
+.bge-md-wrapper {
+    /* github-markdown-css はルート要素に .markdown-body を付与するだけで動作する */
+    /* 管理画面の BurgerEditor iframe 内では max-width を上書き */
+}
+
+/* BurgerEditor iframe 内での github-markdown-css リセット上書き */
+.bge-md-preview-body.markdown-body,
+.bge-md-wrapper.markdown-body {
+    max-width: none;
+    color: inherit;
+}
+
+/* コードブロック (hljs) の基本余白 */
+.bge-md-wrapper pre,
+.bge-md-preview-body pre {
+    position: relative;
+}
+
+.bge-md-wrapper pre.hljs,
+.bge-md-preview-body pre.hljs {
+    padding: 14px 16px;
+    border-radius: 6px;
+    overflow-x: auto;
+}
