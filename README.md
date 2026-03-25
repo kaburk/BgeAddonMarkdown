@@ -58,7 +58,7 @@ plugins/BgeAddonMarkdown/
 │       └── value.php                   ← data-bge="md-source:data-md-source"
 └── webroot/
     ├── css/bge-addon-markdown.css      ← 分割エディタ + フロントスタイル
-    ├── css/vendor/github-markdown.min.css  (27KB)
+    ├── css/vendor/github-markdown.min.css  (19KB)
     └── js/vendor/markdown-it.min.js (121KB) + highlight.min.js (125KB)
 
 ## ライセンス
