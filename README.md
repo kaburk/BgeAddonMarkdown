@@ -1,6 +1,11 @@
 # BgeAddonMarkdown
 
-BurgerEditor の Addon プラグイン。Markdown 形式でコンテンツを記述し、フロントエンドで GitHub スタイルの美しい HTML としてレンダリングします。
+BurgerEditor用カスタムブロックのマークダウン形式テキストを表示するブロックです。
+
+## 必要要件
+
+- baserCMS 5.x
+- BurgerEditor プラグイン
 
 ## 機能
 
@@ -8,18 +13,13 @@ BurgerEditor の Addon プラグイン。Markdown 形式でコンテンツを記
 - 管理画面での **左右分割エディタ**（左：Markdown 入力 / 右：リアルタイムプレビュー）
 - GitHub スタイルの CSS（github-markdown-css）によるきれいな表示
 - コードブロック（` ``` `）への **シンタックスハイライト**（highlight.js）
-- XSS 安全（markdown-it のデフォルト `html: false`）
-
-## 必要要件
-
-- baserCMS 5.x
-- BurgerEditor プラグイン
 
 ## インストール
 
-```bash
-bin/cake plugin load BgeAddonMarkdown
-```
+1. [このリポジトリのRelease](https://github.com/kaburk/BgeAddonMarkdown/releases) から ZIP ファイルをダウンロードします
+2. baserCMS 管理画面の **「プラグイン管理」→「新規追加」** を開きます
+3. ダウンロードした ZIP ファイルをアップロードします
+4. プラグイン一覧に `BgeAddonMarkdown` が表示されたら **「有効」** に切り替えます
 
 ## 使い方
 
@@ -65,6 +65,15 @@ plugins/BgeAddonMarkdown/
 
 MIT License
 
-## 作者
+Copyright (c) 2026 kaburk
 
-kaburk
+本ソフトウェアは MIT ライセンスのもとで公開されています。詳細は [LICENCE.txt](LICENCE.txt) を参照してください。
+
+### 使用ライブラリ
+
+| ライブラリ | ライセンス | リンク |
+|---|---|---|
+| markdown-it | MIT | https://github.com/markdown-it/markdown-it |
+| github-markdown-css | MIT | https://github.com/sindresorhus/github-markdown-css |
+| highlight.js | BSD 3-Clause | https://github.com/highlightjs/highlight.js |
+
