@@ -12,6 +12,7 @@ namespace BgeAddonMarkdown\Event;
 
 use BaserCore\Event\BcViewEventListener;
 use BaserCore\Utility\BcUtil;
+use Cake\Core\Plugin;
 use Cake\Event\EventInterface;
 use Cake\View\View;
 
@@ -76,13 +77,16 @@ class BgeAddonMarkdownViewEventListener extends BcViewEventListener
             ['defer' => 'defer']
         );
 
-        // highlight.js は BgeAddonSyntaxHighlight が読み込んでいない場合のみロード
-        // フロントエンド初期化スクリプト内で window.hljs の存在を確認して重複を防ぐ
-        $View->BcBaser->js(
-            'BgeAddonMarkdown.vendor/highlight.min',
-            false,
-            ['defer' => 'defer', 'id' => 'bge-addon-markdown-hljs']
-        );
+        // highlight.js は BgeAddonSyntaxHighlight が有効な場合はそちらに任せる。
+        // 両方で読み込むと、後から読み込んだ highlight.js が window.hljs を上書きし、
+        // BgeAddonSyntaxHighlight が拡張した行番号表示（hljs.lineNumbersBlock）が消えるため。
+        if (!Plugin::isLoaded('BgeAddonSyntaxHighlight')) {
+            $View->BcBaser->js(
+                'BgeAddonMarkdown.vendor/highlight.min',
+                false,
+                ['defer' => 'defer', 'id' => 'bge-addon-markdown-hljs']
+            );
+        }
 
         // フロントエンド初期化インラインスクリプト
         $initScript = <<<'JS'

@@ -2,7 +2,12 @@
 $this->BcBaser->css('BgeAddonMarkdown.vendor/github-markdown.min', false);
 $this->BcBaser->css('BgeAddonMarkdown.bge-addon-markdown', false);
 $this->BcBaser->js('BgeAddonMarkdown.vendor/markdown-it.min', false);
-$this->BcBaser->js('BgeAddonMarkdown.vendor/highlight.min', false);
+// BgeAddonSyntaxHighlight が有効な場合は highlight.js をそちらに任せる。
+// 後から読み込んだ highlight.js が window.hljs を上書きすると、
+// 行番号表示の拡張（hljs.lineNumbersBlock）が消えてしまうため。
+if (!\Cake\Core\Plugin::isLoaded('BgeAddonSyntaxHighlight')) {
+    $this->BcBaser->js('BgeAddonMarkdown.vendor/highlight.min', false);
+}
 
 // PHP で CSS URL を直接生成して JS に渡す（ロード順序に依存しない）
 $pluginPath = \Cake\Utility\Inflector::underscore('BgeAddonMarkdown');

@@ -4,8 +4,8 @@ BurgerEditor用カスタムブロックのマークダウン形式テキスト�
 
 ## 必要要件
 
-- baserCMS 5.x
-- BurgerEditor プラグイン
+- baserCMS5.x
+- BurgerEditor プラグイン（baserCMS5.3以前）または BcBurgerEditor プラグイン（baserCMS5.4以上）
 
 ## 機能
 
